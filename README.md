@@ -9,8 +9,6 @@ The app helps me:
 - Get recommendations on what to listen to next
 - Keep a journal of my music journey
 
----
-
 ## Features
 - **Home Page**:
   - Shows the last three reviewed albums with the option to see all albums reviewed.
@@ -40,8 +38,6 @@ The app helps me:
   - Search all albums by album name or artist name.
   - Filter albums by genre.
 
----
-
 ## Technologies Used
 
 - **XAMPP** (Apache, MySQL, PHP) for local server and database management.
@@ -50,20 +46,14 @@ The app helps me:
 - **HTML/CSS** for frontend design and layout.
 - **JavaScript** for dynamic actions (e.g., shuffle button).
 
----
-
 ## Requirements
 
 - **XAMPP** (for running the app locally with Apache and MySQL).
 - Basic understanding of **PHP**, **MySQL**, and **HTML/CSS**.
 
----
-
 ## Project Status
 Currently in the planning phase.  
 Building MVP soon!
-
----
 
 ## Future Ideas
 - Track how many albums were listened to in the current month
