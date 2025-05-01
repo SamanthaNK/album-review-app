@@ -1,0 +1,44 @@
+/* Shared form spacing */
+form {
+    margin-bottom: 60px;
+}
+
+textarea,
+input[type="text"],
+input[type="number"],
+input[type="url"],
+input[type="date"],
+select {
+    font-size: 1rem;
+}
+
+h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.alert {
+    font-size: 1rem;
+}
+
+/* extra spacing at the bottom of the page */
+body {
+    padding-bottom: 60px;
+}
+
+/* improvement to form label spacing */
+label.form-label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Make the select box more compact */
+#genres {
+    height: 150px; /* Adjust the height for better visibility */
+    max-width: 100%; /* Ensure it doesn't stretch too wide */
+}
+
+/*  Add padding to dropdown options for better spacing */
+#genres option {
+    padding: 5px;
+}
