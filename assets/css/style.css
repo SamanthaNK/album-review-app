@@ -1,44 +1,807 @@
-/* Shared form spacing */
-form {
-    margin-bottom: 60px;
+/* General Styles */
+:root {
+    --primary-color: #A67873;
+    --secondary-color: #A8CBB7;
+    --accent-color: #EE6F6F;
+    --background-color: #FAF3E0;
+    --text-color: #3B3B3B;
+    --cta-color: #D46A55;
+    --light-text: #ffffff;
+    --card-bg: #ffffff;
+    --card-hover: rgba(166, 120, 115, 0.1);
+    --border-radius: 12px;
+    --btn-radius: 50px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
 }
 
-textarea,
-input[type="text"],
-input[type="number"],
-input[type="url"],
-input[type="date"],
-select {
-    font-size: 1rem;
+body {
+    font-family: 'Inter', 'Manrope', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
 }
 
 h2 {
-    font-weight: bold;
-    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
 }
 
-.alert {
-    font-size: 1rem;
-}
-
-/* extra spacing at the bottom of the page */
-body {
-    padding-bottom: 60px;
-}
-
-/* improvement to form label spacing */
-label.form-label {
-    margin-bottom: 5px;
+h5 {
+    font-size: 1.25rem;
     font-weight: 600;
 }
 
-/* Make the select box more compact */
-#genres {
-    height: 150px; /* Adjust the height for better visibility */
-    max-width: 100%; /* Ensure it doesn't stretch too wide */
+.text-muted {
+    color: var(--primary-color) !important;
+    opacity: 0.8;
 }
 
-/*  Add padding to dropdown options for better spacing */
+/* Card styling */
+.card {
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    border: none;
+    background-color: var(--card-bg);
+    overflow: hidden;
+    height: 100%;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+}
+
+.bg-light {
+    background-color: var(--card-bg) !important;
+}
+
+/* Album covers */
+.object-fit-cover {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.album-cover-container {
+    height: 250px;
+    overflow: hidden;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    margin-bottom: 1rem;
+}
+
+/* Button styling */
+.btn {
+    font-weight: 500;
+    transition: var(--transition);
+    font-family: "Manrope", sans-serif;
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+}
+
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(238, 111, 111, 0.3) !important;
+}
+
+.btn-primary,
+.btn-outline-primary:hover,
+.btn-success:hover {
+    background-color: var(--cta-color);
+    border-color: var(--cta-color);
+    color: var(--light-text);
+}
+
+.btn-primary:hover,
+.btn-dark:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-dark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+.btn-outline-dark {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: transparent;
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+.btn-outline-primary {
+    color: var(--cta-color);
+    border-color: var(--cta-color);
+    background-color: transparent;
+}
+
+.btn-success {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.rounded-pill {
+    border-radius: var(--btn-radius) !important;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--cta-color);
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Album grid styling */
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.album-card {
+    height: 100%;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+}
+
+.album-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.album-cover {
+    position: relative;
+    padding-bottom: 100%;
+    background-color: var(--secondary-color);
+}
+
+.album-cover img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.album-info {
+    padding: 1.2rem;
+}
+
+.album-actions {
+    padding: 0 1.2rem 1.2rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.album-actions .btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.genre-tag {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Page Headers */
+.page-header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.page-header .subtitle {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+/* Alert messages */
+.alert {
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+}
+
+.alert-success {
+    background-color: rgba(168, 203, 183, 0.2);
+    border-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.alert-danger {
+    background-color: rgba(238, 111, 111, 0.2);
+    border-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+/* add album page styling */
+
+/* Form Layout */
+.form-wrapper {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group-half {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* Form Elements */
+.form-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.form-icon {
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+    width: 1rem;
+    text-align: center;
+}
+
+.form-control,
+.form-select {
+    padding: 0.8rem 1rem;
+    border: 2px solid rgba(166, 120, 115, 0.15);
+    border-radius: var(--border-radius);
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(238, 111, 111, 0.15);
+    background-color: white;
+}
+
+.form-control::placeholder {
+    color: rgba(59, 59, 59, 0.4);
+}
+
+/* Multi-select for genres */
+#genres {
+    height: 180px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 #genres option {
-    padding: 5px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+}
+
+/* Image Preview */
+.image-preview-container {
+    margin-top: 1.5rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    max-width: 300px;
+    box-shadow: var(--shadow);
+    border: 2px solid rgba(168, 203, 183, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#imagePreview {
+    max-height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.image-placeholder {
+    height: 300px;
+    background: linear-gradient(135deg, rgba(168, 203, 183, 0.2) 0%, rgba(238, 111, 111, 0.2) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.placeholder-content {
+    padding: 2rem;
+}
+
+.placeholder-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.form-actions button {
+    flex: 1;
+    padding: 0.8rem 0;
+    font-weight: 600;
+    border-radius: var(--btn-radius);
+    transition: all 0.3s ease;
+}
+
+.form-actions button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Album Review Page Specific */
+.review-content {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr) 2fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.album-sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.album-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.album-cover {
+    height: 350px;
+    overflow: hidden;
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.album-meta {
+    padding: 1.5rem;
+}
+
+.album-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.rating-icon {
+    margin-right: 1rem;
+    color: var(--cta-color);
+    font-size: 1.5rem;
+}
+
+.album-text h4 {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+}
+
+.album-text p {
+    margin-bottom: 0;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Rating Selector */
+.rating-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.rating-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid rgba(238, 111, 111, 0.3);
+    color: var(--text-color);
+    background-color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-check:checked+.rating-btn {
+    background-color: var(--cta-color);
+    border-color: var(--cta-color);
+    color: white;
+}
+
+.rating-btn:hover {
+    border-color: var(--cta-color);
+    transform: translateY(-2px);
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-weight: 600;
+    border-radius: var(--btn-radius);
+    background-color: var(--cta-color);
+    border-color: var(--cta-color);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Add unique style for the cover image URL input field */
+#coverImageUrl {
+    border-style: dashed;
+    border-width: 2px;
+    border-color: var(--secondary-color);
+    background-color: rgba(168, 203, 183, 0.05);
+    text-align: center;
+}
+
+/* Badge styling */
+.badge {
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--btn-radius);
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color) !important;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: var(--card-bg) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 0.8rem 2rem;
+}
+
+.navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--primary-color) !important;
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.2rem;
+}
+
+.nav-link:hover {
+    color: var(--cta-color) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 80%;
+    left: 10%;
+}
+
+/* Footer styling */
+footer {
+    background-color: var(--card-bg);
+    border-top: 1px solid rgba(166, 120, 115, 0.2);
+    padding: 1.5rem 0;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Utility classes */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-accent {
+    color: var(--accent-color) !important;
+}
+
+/* Banner for homepage */
+.hero-banner {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    height: 700px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-banner h1 {
+    color: var(--light-text);
+    margin-bottom: 1rem;
+    font-size: 5rem;
+    font-family: "Delius", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.hero-banner p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.animated-card {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Homepage sections */
+.homepage-section {
+    margin-bottom: 4rem;
+}
+
+.features-section .card {
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+}
+
+.features-section .icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+
+.latest-listens .album-cover-wrapper {
+    height: 0;
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.latest-listens .album-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.latest-listens .card {
+    height: 100%;
+}
+
+.latest-listens .album-img-container {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.latest-listens .album-img-container img,
+.latest-listens .album-img-container .bg-secondary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.text-warning {
+    color: var(--cta-color) !important;
+}
+
+/* Responsive adjustments */
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .review-content {
+        grid-template-columns: 1fr;
+    }
+
+    .album-sidebar {
+        position: static;
+        max-width: 400px;
+        margin: 0 auto 2rem;
+    }
+
+    .album-cover {
+        height: 400px;
+    }
+
+    .form-wrapper {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    h5 {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .album-grid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 1rem;
+    }
+
+    .album-info {
+        padding: 1rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .album-actions {
+        padding: 0 1rem 1rem;
+    }
+
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .form-wrapper {
+        padding: 1.5rem;
+    }
+
+    .page-header {
+        padding: 2rem 0 1.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .review-page-header {
+        padding: 2rem 1rem;
+    }
+
+    .review-page-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-wrapper {
+        padding: 1.25rem;
+    }
+
+    .rating-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .hero-banner {
+        padding: 2rem 0;
+    }
+
+    .hero-banner h1 {
+        font-size: 1.8rem;
+    }
 }
